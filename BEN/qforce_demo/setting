@@ -1,0 +1,53 @@
+
+[ff]
+n_equiv = 4
+n_excl = 2
+lennard_jones = opls_auto
+ext_charges = no
+charge_scaling = 1.2
+use_ext_charges_for_frags = no
+ext_lj_lib = 
+ext_lj_fudge = 
+ext_q_fudge = 
+ext_comb_rule = 
+ext_h_cap = 
+all_rigid = no
+res_name = MOL
+
+[qm]
+software = gaussian
+scan_step_size = 15.0
+charge = 0
+multiplicity = 1
+memory = 50000
+n_proc = 12
+vib_scaling = 0.957
+dihedral_scanner = relaxed_scan
+
+[qm::software(gaussian)]
+charge_method = cm5
+method = wb97xD
+dispersion = None  
+basis = 6-311++G(d, p)
+solvent_method = 
+
+[scan]
+do_scan = yes
+avail_only = no
+frag_threshold = 3
+conj_bo_cutoff = 1.4
+break_co_bond = no
+method = qforce
+gromacs_exec = gmx
+n_dihed_scans = 5
+plot_fit = no
+frag_lib = ~/qforce_fragments
+batch_run = False
+
+[terms]
+urey = False
+dihedral/rigid = True
+dihedral/improper = True
+dihedral/flexible = True
+dihedral/inversion = True
+non_bonded = True
