@@ -3,14 +3,20 @@
 ## Necessary files
 ```
 ----FORCEFILED
-    ----molecule.ff
-        ----forcefield.itp
-    ----molecule.top
+|   ----molecule.ff
+|       ----forcefield.itp
+|       ----*.rtp
+|   ----molecule.top
+|
 ----QM_GAS_PHASE
-    ----molecule.fchk
+|   ----molecule.fchk
+|
 ----STRUCTURE
-    ----molecule.pdb
+|   ----molecule.pdb
 ```
+## Example
+* BEN
+![alt text](image-1.png)
 
 
 some source code: https://github.com/selimsami/qforce
