@@ -2,3 +2,5 @@ Hessian.zip
 CNP
 ./BEN/qforce_demo
 .venv
+BEN/QM_GAS_PHASE/*
+!BEN/QM_GAS_PHASE/BEN.fchk

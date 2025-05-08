@@ -5,12 +5,12 @@
 A tool for calculating molecular vibrational modes and corresponding frequencies using GROMACS input, and comparing the results with quantum mechanical (QM) calculations.
 </div>
 
-### Requirement
-## Python Package
+## Requirement
+### Python Package
 * numpy
 * ase
 * seaborn
-## Necessary files
+### Necessary files
 ```
 ----FORCEFILED
 |   ----molecule.ff
@@ -26,8 +26,8 @@ A tool for calculating molecular vibrational modes and corresponding frequencies
 ```
 
 ## Example
-* BEN  
-    * Input
+### BEN (benzene)  
+#### Input setting
 ```python
 compound = 'BEN' # Molecule
 mypath = './' # The path can find the directory of molecule
@@ -37,9 +37,9 @@ mypath = './' # The path can find the directory of molecule
 vib_scaling = 0.957 
 
 include_nonbonded = False # True: Include nonbonded interaction in calculation
-have_dihedral = False # True: Include diheral term in calculation
+have_dihedral = False # True: Include dihedral term in calculation
 ```
-
+#### Results
 ![alt text](image-1.png)
 
 

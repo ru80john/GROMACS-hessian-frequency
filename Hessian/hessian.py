@@ -47,7 +47,7 @@ def calc_hessian(qm, mol):
             qm_coords[a][xyz] += 0.003
             diff = - (f_plus - f_minus) / 0.006
             full_hessian[a*3+xyz] = diff.reshape(1, 3*qm.n_atoms).T
-            print(f'  ({a*3 + xyz + 1}/{int(qm.n_atoms*3)}) Done!')
+            #print(f'  ({a*3 + xyz + 1}/{int(qm.n_atoms*3)}) Done!')
     return full_hessian
 
 
