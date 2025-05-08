@@ -16,10 +16,10 @@ mypath = './' # The path can find the directory of molecule
 vib_scaling = 0.957 
 
 include_nonbonded = False # True: Include nonbonded interaction in calculation
-have_dihedral = False # True: Include diheral term in calculation
+include_dihedral = False # True: Include diheral term in calculation
 
 
-def run(compound, mypath, vib_scaling, have_dihedral, include_nonbonded):
+def run(compound, mypath, vib_scaling, include_dihedral, include_nonbonded):
     folder_path = f"{mypath}{compound}/FREQUENCY"
 
     if os.path.exists(folder_path) and os.path.isdir(folder_path):
@@ -34,18 +34,18 @@ def run(compound, mypath, vib_scaling, have_dihedral, include_nonbonded):
     atom_list = atom.atomlist
     bond_fconst = Bond(compound, mypath).bond_list_fconst
     angle_fconst = Angle(compound, mypath).angle_list_fconst
-    imp_fconst = Improper(compound, mypath, have_dihedral).improper_list_fconst
+    imp_fconst = Improper(compound, mypath, include_dihedral).improper_list_fconst
 
-    if have_dihedral and include_nonbonded:
+    if include_dihedral and include_nonbonded:
         atom_fconst = atom.non_bonded_pairs
         dih_fconst = Dihedral(compound, mypath).dihedral_list_fconst
         md = [VDW_Q_F(atom_fconst), Bond_F(bond_fconst, atom_list), Angle_F(angle_fconst, atom_list), RB_Dihed_F(dih_fconst, atom_list), IMP_Dihed_F(imp_fconst, atom_list)]
 
-    elif not have_dihedral and include_nonbonded:
+    elif not include_dihedral and include_nonbonded:
         atom_fconst = atom.non_bonded_pairs
         md = [VDW_Q_F(atom_fconst), Bond_F(bond_fconst, atom_list), Angle_F(angle_fconst, atom_list), IMP_Dihed_F(imp_fconst, atom_list)]
 
-    elif have_dihedral and not include_nonbonded:
+    elif include_dihedral and not include_nonbonded:
         dih_fconst = Dihedral(compound, mypath).dihedral_list_fconst
         md = [Bond_F(bond_fconst, atom_list), Angle_F(angle_fconst, atom_list), RB_Dihed_F(dih_fconst, atom_list), IMP_Dihed_F(imp_fconst, atom_list)]
         
@@ -70,7 +70,7 @@ if __name__ == "__main__":
     try:
         print("Main code is running...")
         #################################################
-        run(compound, mypath, vib_scaling, have_dihedral, include_nonbonded)
+        run(compound, mypath, vib_scaling, include_dihedral, include_nonbonded)
         #################################################  
     finally:
         # 通知旋轉符號的線程停止
