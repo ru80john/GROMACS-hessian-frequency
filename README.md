@@ -6,7 +6,7 @@ A tool for calculating molecular vibrational modes and corresponding frequencies
 </div>
 
 ## Usage
-```python
+```bash
 python calc_frequency.py
 ```
 ### Input Setting (In calc_frequency.py)

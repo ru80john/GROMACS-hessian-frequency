@@ -60,12 +60,9 @@ def run(compound, mypath, vib_scaling, include_dihedral, include_nonbonded):
 
 
 if __name__ == "__main__":
-    # 創建一個事件對象，用於通知旋轉符號的線程停止
     done_event = threading.Event()
-    # 創建一個線程顯示旋轉符號
     spinner_thread = threading.Thread(
         target=rotating_spinner, args=(done_event,))
-    # 啟動旋轉符號的線程
     spinner_thread.start()
     try:
         print("Main code is running...")
@@ -73,9 +70,7 @@ if __name__ == "__main__":
         run(compound, mypath, vib_scaling, include_dihedral, include_nonbonded)
         #################################################  
     finally:
-        # 通知旋轉符號的線程停止
         done_event.set()
-        # 等待旋轉符號的線程結束
         spinner_thread.join()
     
     print("\nCalculation Done!")
