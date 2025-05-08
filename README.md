@@ -1,7 +1,10 @@
 # GROMACS Hessian frequency
 ## Introduction
+
+<div align="center">
 A tool for calculating molecule vibrational mode and its corresponding frequency using GROMACS input 
 and compare the results with QM calculation.
+</div>
 
 ## Necessary files
 ```
@@ -18,10 +21,10 @@ and compare the results with QM calculation.
 |   ----molecule.pdb
 ```
 ## Example
-* BEN
-```{python}
-compound = 'BEN'
-mypath = './'
+* BEN  
+```python
+compound = 'BEN' # Molecule
+mypath = './' # 
 vib_scaling = 0.957
 include_nonbonded = False
 have_dihedral = False
