@@ -5,7 +5,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 #
-from elements import ATOMMASS, ATOM_SYM
+from Hessian.elements import ATOMMASS, ATOM_SYM
 
 
 def calc_qm_vs_md_frequencies(mypath, compound, qm , md_hessian):

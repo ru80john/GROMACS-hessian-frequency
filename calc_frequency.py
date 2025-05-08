@@ -1,20 +1,22 @@
-# %%
 import sys
-sys.path.append('C:/Users/ru80j_iujm6o5/work/Hessian_v3/Hessian')
-from read_chk_file import QM
-from md_file_info import Atom, Bond, Angle, Dihedral, Improper
-from hessian import fit_hessian
-from thread import rotating_spinner
-from frequencies import calc_qm_vs_md_frequencies
-from term_force import VDW_Q_F, Bond_F, Angle_F, RB_Dihed_F, IMP_Dihed_F
+from Hessian.read_chk_file import QM
+from Hessian.md_file_info import Atom, Bond, Angle, Dihedral, Improper
+from Hessian.hessian import fit_hessian
+from Hessian.thread import rotating_spinner
+from Hessian.frequencies import calc_qm_vs_md_frequencies
+from Hessian.term_force import VDW_Q_F, Bond_F, Angle_F, RB_Dihed_F, IMP_Dihed_F
 import threading
 import os
 
-compound = 'BEN'
-mypath = './'
-vib_scaling = 0.957
-include_nonbonded = False
-have_dihedral = False
+compound = 'BEN' # Molecule
+mypath = './' # The path can find the directory of molecule
+
+# The scaling value of vibrational frequecy, 0.957 is used for wb97XD/6-311++G(d,p) 
+# Other scaling value can be found on https://cccbdb.nist.gov/vibscalejustx.asp
+vib_scaling = 0.957 
+
+include_nonbonded = False # True: Include nonbonded interaction in calculation
+have_dihedral = False # True: Include diheral term in calculation
 
 
 def run(compound, mypath, vib_scaling, have_dihedral, include_nonbonded):

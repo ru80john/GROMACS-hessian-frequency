@@ -1,6 +1,6 @@
 import numpy as np
 import math
-from numba import jit
+#from numba import jit
 """
     Calculation of forces on x, y, z directions and also seperately on
     term_ids. So forces are grouped seperately for each unique FF

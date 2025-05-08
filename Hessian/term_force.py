@@ -1,4 +1,4 @@
-from forces import calc_bonds, calc_angles, calc_rb_diheds, calc_imp_diheds, calc_pairs
+from Hessian.forces import calc_bonds, calc_angles, calc_rb_diheds, calc_imp_diheds, calc_pairs
 
 class VDW_Q_F:
     def __init__(self, params):
